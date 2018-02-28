@@ -27,19 +27,20 @@ int main (int argc, unsigned char * argv[]) {
    if (strcmp(argv[1], "-a") == _ZERO) {
     for (i = 65; i <= 90; i++) {
      if (CheckLogicalDisk(i) == _ZERO) {
-	    LOCAL_DISK[_ZERO] = (char) i;
+      LOCAL_DISK[_ZERO] = (char) i;
       FindDir(&LOCAL_DISK[_ZERO], argv[2]);
      }
     }
    }
    else {
-	if (strlen(argv[1]) < 256) {
-     memset(&LOCAL_DISK[_ZERO], _ZERO, 256);
-     strcat(&LOCAL_DISK[_ZERO], argv[1]);
-     FindDir(&LOCAL_DISK[_ZERO], argv[2]);
-	}
-	else
-	 printf("Error: length path more then 256!\n");
+    int length = strlen(argv[1]); 
+     if (length > 0 && length < 256) {
+      memset(&LOCAL_DISK[_ZERO], _ZERO, 256);
+      strcat(&LOCAL_DISK[_ZERO], argv[1]);
+      FindDir(&LOCAL_DISK[_ZERO], argv[2]);
+     }
+     else
+      printf("Error: length mask incorrect!\n");
    }
 
   printf("\n + The search is complete!\n");

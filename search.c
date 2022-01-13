@@ -19,8 +19,7 @@ int main (int argc, unsigned char * argv[]) {
   printf("Incorrect argument!\n"); 
   printf("Enter command: %s [local_disk:] [mask *]\n", argv[0]); 
  }
- else
- if (argc == 3) {
+ else {
   unsigned char LOCAL_DISK[256] = {'A',':',_ZERO};
   int i;
 
